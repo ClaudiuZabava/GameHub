@@ -1,0 +1,105 @@
+<div class="row mb-5">
+    <div class="col-8">
+        <div class= "form-card">
+            <div class= "form-card-header">
+            <h1>List New Game</h1>
+            </div>
+            <div class= "card-body">
+                <form [formGroup]="listingForm" (ngSubmit)="addNewGame()">
+                    <mat-tab-group>
+                        <mat-tab label="Display Info" id="tab1">
+                            <br>
+                            <div class ="form-group col-12">
+                                <label>Name</label>
+                                <input type="text" class="form-control" [(ngModel)]="game.gameName" formControlName="gameName">
+                                <span class="error-msg" *ngIf="!gameName!.valid && gameName!.touched">Please provide the game name</span>
+                            </div>
+                
+                            <br>
+                            <div class ="form-group col-12">
+                                <label>Genre</label>
+                                <input type="text" class="form-control" [(ngModel)]="game.gameGenre" formControlName="gameGenre">
+                                <span class="error-msg" *ngIf="!gameGenre!.valid && gameGenre!.touched">Please provide the game Genre</span>
+                            </div>
+                            <br>
+                            <div class ="form-group col-12">
+                                <label>Release Date</label>
+                                <div class="input-group">
+                                    <input
+                                        class="form-control"
+                                        placeholder="yyyy-mm-dd"
+                                        name="dp"
+                                        ngbDatepicker
+                                        #d="ngbDatepicker"
+                                        [(ngModel)]="game.gameRelease"
+                                        formControlName="gameRelease"
+
+                                    />
+                                    <button class="btn btn-outline-secondary bi bi-calendar2-plus" (click)="d.toggle()" type="button"></button>
+                                </div>
+                                <span class="error-msg" *ngIf="!gameRelease!.valid && gameRelease!.touched">Please provide the game release date</span>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Details" id="tab2" [disabled]="!gameName.valid || !gameGenre.valid || !gameRelease.valid">
+                            <br>
+                            <div class ="form-group col-12">
+                                <label for="blink">Age Restriction</label>
+                                <input type="number" class="form-control" [(ngModel)]="game.gameAgeV" formControlName="gameAgeV">
+                                <span class="error-msg" *ngIf="!gameAgeV!.valid && gameAgeV!.touched">Please enter a valid age</span>
+                            </div>
+                            <br>
+                            <div class ="form-group col-12">
+                                <label for="blink">Store Link</label>
+                                <input type="url" class="form-control" [(ngModel)]="game.storeLink" formControlName="storeLink">
+                                <span class="error-msg" *ngIf="!storeLink!.valid && storeLink!.touched">Please enter a valid link to official store</span>
+                            </div>
+                            <br>
+                            <div class ="form-group col-12">
+                                <label for="blink">Game Description</label>
+                                <textarea class="form-control" cols="50" rows="10" [(ngModel)]="game.gameDesc" formControlName="gameDesc"></textarea>
+                                <span class="error-msg" *ngIf="!gameDesc!.valid && gameDesc!.touched">Please provide game description</span>
+                            </div>
+                            <br>
+                            <div class ="form-group col-12">
+                                <div class="photo-control">
+                                    <input type="file" class="file-upload" (change)="selectFile($event)">
+                                    <p> Please, select a file from the 'assets' folder</p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class ="form-group col-12">
+                                <button type="submit" class="btn btn-primary"  style="width:50%; margin-left:25%;">Add Game</button>
+                                <br />
+                                <button type="reset" class="btn btn-primary" style="width:50%; margin-left:25%; margin-top:5%;">Cancel</button>
+                            </div>
+                    </mat-tab>
+                   </mat-tab-group>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4" style="color: white">
+        <div class="card-header">
+            <h2>Card List Preview</h2>
+        </div> 
+        <div class="col-sm-3 mb-3">
+            <div class="card bg-black" style="width: 18rem; color:white">
+                <img src={{previewImg}} class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">{{game.gameName}}</h5>
+                <hr>
+                <div style="display: flex; justify-content: space-between;">
+                    <p class="card-text" style="color:rgb(151, 151, 151); font-weight:600;">Genre</p>
+                    <p class="card-text" style="font-style: italic;color: rgb(45, 45, 175); font-weight: 500;">{{game.gameGenre}}</p>
+        
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <p class="card-text" style="color:rgb(151, 151, 151);font-weight:600;">Release Date</p>
+                    <p class="card-text" style="color:white">{{game.gameRelease | myDate }}</p>
+                </div>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

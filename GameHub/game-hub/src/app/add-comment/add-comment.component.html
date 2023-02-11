@@ -1,0 +1,30 @@
+<div class="row mb-5">
+    <div class="col-8">
+        <div class= "form-card">
+            <div class= "form-card-header">
+            <h1>What is on your Mind ?</h1>
+            </div>
+            <div class= "card-body">
+                <form [formGroup]="commentForm" (ngSubmit)="addNewComment()">
+                    <mat-tab-group>
+                        <mat-tab label="New comment" id="tab1">
+                            <br>
+                            <div class ="form-group col-12">
+                                <label for="blink">Game Description</label>
+                                <textarea class="form-control" cols="50" rows="10" [(ngModel)]="comment.comment" formControlName="commentDesc"></textarea>
+                                <span class="error-msg" *ngIf="!commentDesc!.valid && commentDesc!.touched">Please provide some text</span>
+                            </div>
+                            <br>
+                            <div class ="form-group col-12">
+                                <button type="submit" class="btn btn-primary"  style="width:50%; margin-left:25%;">Post Comment</button>
+                                <br />
+                                <button type="reset" class="btn btn-primary" style="width:50%; margin-left:25%; margin-top:5%;">Cancel</button>
+                            </div>
+                        </mat-tab>
+                   </mat-tab-group>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

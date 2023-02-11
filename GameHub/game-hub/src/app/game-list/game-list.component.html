@@ -1,0 +1,7 @@
+<div class="row">
+    <app-search-bar></app-search-bar>
+    <div class="col-sm-3 mb-3" *ngFor="let game of gameList">
+        <app-game-card [game]="game"></app-game-card>
+    </div>
+</div>
+

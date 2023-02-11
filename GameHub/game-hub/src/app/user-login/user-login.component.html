@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-8 m-auto">
+        <div class= "card m-auto">
+            <div class="card-header" style="background-color: black;">
+             <h1>LogIn</h1>
+            </div>
+            <div class= "card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogIn()">
+                    <br  />
+                    <div class ="form-group col-12">
+                        <label for="name">Email</label>
+                        <input type="text" class="form-control" formControlName="userLogMail">
+                        <span class="error-msg" *ngIf="!userLogMail!.valid && userLogMail!.touched">Please provide an email</span>
+                    </div>
+        
+                    <br />
+                    <div class ="form-group col-12">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="userLogPass">
+                        <span class="error-msg" *ngIf="!userLogPass!.valid && userLogPass!.touched">Please enter your password</span>
+                    </div>
+
+                    <br />
+                    <div class ="form-group col-12">
+                        <a class="nav-link" routerLink="/user-register">Don't have an account yet?</a>
+                    </div>
+        
+                    <br  />
+                    <div class ="form-group col-12">
+                        <button type="submit" class="btn btn-primary"  style="width:50%; margin-left:25%;">LogIn</button>
+                        <br />
+                        <button type="reset" class="btn btn-primary" style="width:50%; margin-left:25%; margin-top:5%;">Cancel</button>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

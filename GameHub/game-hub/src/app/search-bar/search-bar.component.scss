@@ -1,0 +1,12 @@
+.btn{
+    background: transparent;
+    color: blue;
+    border: 2px solid blue;
+    cursor: pointer;
+
+}
+.btn:hover{
+    background: blue;
+    color: white;
+    outline:blue;
+}

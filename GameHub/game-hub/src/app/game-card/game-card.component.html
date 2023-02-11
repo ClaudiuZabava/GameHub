@@ -1,0 +1,23 @@
+<div class="col-sm-3 mb-3">
+    <div class="card bg-black" style="width: 18rem; color:white">
+        <a routerLink="/game-page/{{game.gameId}}" style="text-decoration:none;"> <img src={{imgUrl}} class="card-img-top"></a>
+        <div class="card-body">
+        <h5 class="card-title">{{game.gameName}}</h5>
+        <hr>
+        <div style="display: flex; justify-content: space-between;">
+            <p class="card-text" style="color:rgb(151, 151, 151); font-weight:600;">Genre</p>
+            <p class="card-text" style="font-style: italic;color: rgb(45, 45, 175); font-weight: 500;">{{game.gameGenre}}</p>
+
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <p class="card-text" style="color:rgb(151, 151, 151);font-weight:600;">Release Date</p>
+            <p class="card-text" style="color:white">{{game.gameRelease}}</p>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <a href="{{game.storeLink}}" class="btn btn-primary">Store</a>
+            <ngb-rating class="card-text" style="padding-top:5px;font-size:1.5rem;" [rate]="gamerate"></ngb-rating>
+        </div>
+
+        </div>
+    </div>
+</div>

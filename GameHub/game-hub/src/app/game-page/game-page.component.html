@@ -1,0 +1,44 @@
+<div style="display:flex; justify-content:center">
+    <div class="card bg-black" style="width: 69rem; color:white">
+        <img src={{imgUrl}} class="card-img-top">
+        <div class="card-body">
+            <h3 class="card-title" style="text-align:center;">{{displayGame.gameName}}</h3>
+            <hr>
+            <div style="display: flex; justify-content: center;">
+                <div style = "width:55%;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <p class="card-text" style="color:rgb(151, 151, 151); font-weight:600;">Genre</p>
+                        <p class="card-text" style="font-style: italic;color: rgb(45, 45, 175); font-weight: 500;">{{displayGame.gameGenre}}</p>
+            
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p class="card-text" style="color:rgb(151, 151, 151);font-weight:600;">Release Date</p>
+                        <p class="card-text" style="color:white">{{displayGame.gameRelease}}</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p class="card-text" style="color:rgb(151, 151, 151);font-weight:600;">Age Restriction</p>
+                        <p class="card-text" style="font-style:oblique; background-color: rgb(45, 45, 175); border: 3px solid rgb(45, 45, 175); border-radius:12px; font-weight: 500;">{{displayGame.gameAgeV}}+</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class= "card-text" >
+                {{displayGame.gameDesc}}
+            </p>
+            <hr>
+            <div style="display: flex; justify-content: center;">
+                <form [formGroup]="ratingForm" (ngSubmit)="rateGame()" >
+                    <ngb-rating style="font-size:3rem;" formControlName="ratingVal"></ngb-rating>
+                    <br>
+                    <br>
+                    <div style="display: flex; justify-content: center;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+

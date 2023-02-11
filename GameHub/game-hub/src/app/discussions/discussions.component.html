@@ -1,0 +1,12 @@
+<div class="col-sm-12 mb-4"> 
+    <div style="display: flex; justify-content: center;">
+        <button (click)="goType()" type="button" class="btn btn-dark" style="margin-top:2%;"><h5> Add new Comment</h5></button>
+    </div>
+    
+</div>
+    
+<div class="row">
+    <div class="col-sm-12 mb-3" *ngFor="let comm of commentList">
+        <app-comment-card [comm]="comm"></app-comment-card>
+    </div>
+</div>

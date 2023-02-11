@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "game-hub-db6a8"
+  },
+  "targets": {
+    "game-hub-db6a8": {
+      "hosting": {
+        "game-hub": [
+          "game-hub-db6a8"
+        ]
+      }
+    }
+  }
+}
